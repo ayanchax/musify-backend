@@ -51,7 +51,7 @@ function getAutoID() {
 //Get Metadata
 function getMetaData(path, fName) {
     const ffmetadata = require("ffmetadata");
-
+    const fpath = require("path");
     return new Promise((resolve) => {
         setTimeout(() => {
             ffmetadata.read(path + "/" + fName, function(err, data) {
@@ -60,6 +60,7 @@ function getMetaData(path, fName) {
                     resolve({
                         _id: getAutoID(),
                         src: fName,
+                        filepath: fpath.join(path, fName),
                         title: data.title,
                         artist: data.artist,
                         metadata: data,
