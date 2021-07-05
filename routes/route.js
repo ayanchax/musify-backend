@@ -6,7 +6,7 @@ router.get("/media", (req, res, next) => {
     const fs = require("fs");
     //joining path of directory
     const directoryPath = path.join(
-        __dirname.replace("routes", "private/data"),
+        __dirname.replace("routes", "public/private/data"),
         "media"
     );
     //passing directoryPath and callback function
@@ -61,6 +61,8 @@ function getMetaData(path, fName) {
                         _id: getAutoID(),
                         src: fName,
                         filepath: fpath.join(path, fName),
+                        httpFilePathLocal: "http://localhost:3000/private/data/media/" + fName,
+                        httpFilePathHerokuServer: "https://musify0908.herokuapp.com/private/data/media/" + fName,
                         title: data.title,
                         artist: data.artist,
                         metadata: data,
