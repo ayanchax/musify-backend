@@ -22,7 +22,8 @@ app.use("/api/" + key, router);
 
 // this method runs at the entry point of starting the applications
 // Listening to the express server.
-const port = 3000; //port number
+//const port = 3000; //port number
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log("Application Server started at port: " + port);
 });

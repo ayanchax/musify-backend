@@ -2,9 +2,13 @@
     "name": "musify-endpoint",
     "version": "1.0.0",
     "description": "Endpoint to get data for music fly app",
-    "main": "app.js",
+    "main": "server.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "nodemon --exec babel-node server.js"
+    },
+    "engines": {
+        "node": "12.16.1"
     },
     "author": "Swaroop C",
     "license": "ISC",
