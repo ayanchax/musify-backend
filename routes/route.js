@@ -50,11 +50,11 @@ function getAutoID() {
 
 //Get Metadata
 function getMetaData(path, fName) {
-    const ffmetadata = require("ffmetadata");
+    var ffmpeg = require("fluent-ffmpeg");
     const fpath = require("path");
     return new Promise((resolve) => {
         setTimeout(() => {
-            ffmetadata.read(path + "/" + fName, function(err, data) {
+            ffmpeg.ffprobe(path + "/" + fName, function(err, data) {
                 if (err) console.error("Error reading metadata", err);
                 else {
                     resolve({
